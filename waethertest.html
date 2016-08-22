@@ -1,0 +1,22 @@
+<html>
+ <head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script>
+ $(document).ready(function(){
+       $.ajax( {
+         url: "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=",
+         success: function(data) {
+           var post = data.shift();  //The data is an array of posts. Grab the first one.
+           $("#quote-title").text(post.title);
+           $("#quote-content").html(post.content);
+         },
+         cache: false
+       });
+     });
+     </script>
+ </head>
+ <body>
+   <div id="quote-title"></div>
+   <div id="quote-content"></div>
+     <h1>HELLO</h1>
+</html>
